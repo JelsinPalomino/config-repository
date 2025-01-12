@@ -56,8 +56,7 @@ jobs:
       - name: Run linters
         run: |
           echo "Running linters"
-          flake8 foo
-          flake8 tests
+          flake8 .
           isort --check-only . 2>&1
           black --check . 2>&1
 
