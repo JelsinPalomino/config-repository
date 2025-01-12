@@ -1,1 +1,1 @@
-# config-repository
+Demo project for a tutorial
