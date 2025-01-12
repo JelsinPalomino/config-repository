@@ -16,7 +16,7 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     strategy:
       matrix:
         python-version: [3.7, 3.8, 3.9, "3.10"]
@@ -81,7 +81,7 @@ jobs:
         if: matrix.python-version == 3.9
 
   publish:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     needs: build
     if: github.event_name == 'release'
     steps:
