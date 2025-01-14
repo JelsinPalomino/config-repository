@@ -90,7 +90,7 @@ jobs:
       - name: Download a distribution artifact
         uses: actions/download-artifact@v4
         with:
-          name: dist-package-3.9
+          name: dist-package-3.10
           path: dist
 
       - name: Publish distribution 📦 to Test PyPI
