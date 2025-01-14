@@ -19,7 +19,7 @@ on:
 
 env:
   PACKAGE_NAME: "foodemo30"
-  OWNER: "JelsinPalomino"
+  OWNER: "jelsin_palomino"
 
 jobs:
 
@@ -32,7 +32,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Extract tag and Details
+      - name: Extract tag and details-release-release
         id: release
         run: |
           if [ "${{ github.ref_type }}" = "tag" ]; then
@@ -51,7 +51,7 @@ jobs:
           fi
 
   check_pypi-release:
-    needs: details-release 
+    needs: details-release
     runs-on: ubuntu-latest
     steps:
       - name: Fetch information from PyPI
@@ -67,7 +67,7 @@ jobs:
 
       - name: Compare versions and exit if not newer
         run: |
-          NEW_VERSION=${{ needs.details.outputs.new_version }}
+          NEW_VERSION=${{ needs.details-release.outputs.new_version }}
           LATEST_VERSION=$latest_previous_version
           if [ "$(printf '%s\n' "$LATEST_VERSION" "$NEW_VERSION" | sort -rV | head -n 1)" != "$NEW_VERSION" ] || [ "$NEW_VERSION" == "$LATEST_VERSION" ]; then
             echo "The new version $NEW_VERSION is not greater than the latest version $LATEST_VERSION on PyPI."
@@ -183,5 +183,5 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release create ${{ needs.details.outputs.tag_name }} dist/* --title ${{ needs.details.outputs.tag_name }} --generate-notes
+          gh release create ${{ needs.details-release.outputs.tag_name }} dist/* --title ${{ needs.details-release.outputs.tag_name }} --generate-notes
  
