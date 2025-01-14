@@ -144,7 +144,7 @@ jobs:
 
   pypi_publish:
     name: Upload release to PyPI
-    needs: [test-build, details]
+    needs: [test-build, details-release]
     runs-on: ubuntu-latest
     environment:
       name: release
@@ -162,7 +162,7 @@ jobs:
 
   github_release:
     name: Create GitHub Release
-    needs: [test-build, details]
+    needs: [test-build, details-release]
     runs-on: ubuntu-latest
     permissions:
       contents: write
