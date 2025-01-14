@@ -19,7 +19,7 @@ on:
 
 env:
   PACKAGE_NAME: "foodemo30"
-  OWNER: "jelsin_palomino"
+  OWNER: "JelsinPalomino"
 
 jobs:
 
