@@ -51,7 +51,7 @@ jobs:
           fi
 
   check_pypi-release:
-    needs: details
+    needs: details-release 
     runs-on: ubuntu-latest
     steps:
       - name: Fetch information from PyPI
