@@ -8,7 +8,9 @@ copyright = "2025, Jelsin Palomino"
 author = "Jelsin Palomino"
 release = "v0.1.1"
 
-extensions = ["sphinx.ext.autodoc", "sphinx.ext.viewcode", "sphinx.ext.napoleon"]
+extensions_part1 = ["sphinx.ext.autodoc", "sphinx.ext.viewcode"]
+extensions_part2 = ["sphinx.ext.napoleon"]
+extensions = extensions_part1 + extensions_part2
 
 templates_path = ["_templates"]
 exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
