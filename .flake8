@@ -1,2 +1,6 @@
 [flake8]
 exclude = __pycache__, built, build, venv
+
+# ... otras configuraciones
+ignore = E501
+per-file-ignores = conf.py:11
